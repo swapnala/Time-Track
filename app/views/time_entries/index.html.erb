@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Listing Time Entries</h4>
+<table class="table-bordered">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Task</th>
+      
+      <th>Hours</th>
+      <th>Date</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_entries.each do |time_entry| %>
+      <tr>
+        <td><%= time_entry.project.name %></td>
+        <td><%= time_entry.task.name %></td>
+       
+        <td><%= time_entry.hours %></td>
+        <td><%= time_entry.date %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+        
+

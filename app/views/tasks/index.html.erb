@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Listing Tasks</h4>
+
+<table class="table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Billable</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.billable %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

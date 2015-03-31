@@ -1,0 +1,12 @@
+
+
+<%if user_signed_in?%>
+<h4>Welcome User Your Daily Time Spent</h4>
+<%= render 'shared/charts'%>
+<%else%>
+<div class="center jumbotron">
+	<h1>Time Track</h1>
+	<p>Welcome User!!</p>
+<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+</div>
+<%end%>

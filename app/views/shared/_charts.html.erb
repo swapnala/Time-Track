@@ -1,0 +1,3 @@
+<%= pie_chart TimeEntry.joins(:task).includes(:task).group(:'tasks.name').count %>
+<p>Billable(t) Vs Non Billable(f) Tasks</p>
+<%= pie_chart TimeEntry.joins(:task).includes(:task).group(:'tasks.billable').count %>
