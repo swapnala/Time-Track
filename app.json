@@ -1,0 +1,7 @@
+{
+  "name": "Time Track",
+  "description": "Time Track helps you to keep a track where you are spending your time",
+  "repository": "https://github.com/swapnala/Time-Track",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"]
+}
