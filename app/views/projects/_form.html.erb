@@ -15,6 +15,10 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+    <div class="field">
+      <%= f.label :startDate %><br>
+      <%= f.date_select :startDate , class: 'form-group'%>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

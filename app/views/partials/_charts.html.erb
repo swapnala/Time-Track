@@ -17,5 +17,4 @@
             <%= pie_chart TimeEntry.joins(:task).includes(:task).where(:user_id => current_user.id).group(:'tasks.name').sum(:'time_entries.hours') %>
       <%end%>
   <%end%>
-
 </div>
