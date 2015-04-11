@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <% if user_signed_in? %>
+      <% case current_user.role %>
+  <% when 'manager' %>
+          <h4>Billable(t) Vs Non Billable(f) Tasks</h4>
+          <%= pie_chart TimeEntry.joins(:task).includes(:task).group(:'tasks.billable').sum(:'time_entries.hours')%>
+          <h4>Time Spent as per Projects</h4>
+          <%= pie_chart TimeEntry.joins(:project).includes(:project).group(:'projects.name').sum(:'time_entries.hours')%>
+          <h4>Time Spent as per Tasks<h4>
+            <%= pie_chart TimeEntry.joins(:task).includes(:task).group(:'tasks.name').sum(:'time_entries.hours') %>
+      <% when 'teammember' %>
+          <h4>Check where you spend Time</h4>
+          <%= pie_chart TimeEntry.joins(:task).includes(:task).where(:user_id => current_user.id).group(:'tasks.billable').sum(:'time_entries.hours') %>
+          <h4>Time Spent as per Projects</h4>
+          <%= pie_chart TimeEntry.joins(:project).includes(:project).where(:user_id => current_user.id).group(:'projects.name').sum(:'time_entries.hours')%>
+          <h4>Time Spent as per Tasks<h4>
+            <%= pie_chart TimeEntry.joins(:task).includes(:task).where(:user_id => current_user.id).group(:'tasks.name').sum(:'time_entries.hours') %>
+      <%end%>
+  <%end%>
+
+</div>
