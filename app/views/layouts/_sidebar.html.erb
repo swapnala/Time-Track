@@ -1,15 +1,32 @@
 
   	<div class="col-sm-3 col-md-2 tabbable tabs-left">
           <ul class="nav nav-pills nav-stacked col-md-8">
-          	<li  data-toggle="tab"><%= link_to "Create A project", new_project_path  %></li>
-			<li data-toggle="tab"><%= link_to "View Assigned Projects", projects_path  %></li>
+          	<% if user_signed_in? %>
+			  <% case current_user.role %>
+			  <% when 'admin' %>
+			    <li  data-toggle="tab"><%= link_to "Create new user", new_user_registration_path  %></li>
+			  
+			  <% when 'manager' %>
+			    
+			    <li  data-toggle="tab"><%= link_to "Create A project", new_project_path  %></li>
+				<li data-toggle="tab"><%= link_to "View Assigned Projects", projects_path  %></li>
+	          
+	            <li data-toggle="tab"><%= link_to "Create A Task", new_task_path  %></li>
+				<li data-toggle="tab"><%= link_to "View Tasks", tasks_path  %></li>
+				<li data-toggle="tab"><%= link_to "Report: Graphs", root_path  %></li>
+			  
+			  <% when 'teammember' %>
+			    
+			    <li data-toggle="tab"><%= link_to "Create A Time Entry", new_time_entry_path  %></li>
+				<li data-toggle="tab"><%= link_to "View Time Entries", time_entries_path  %></li>
+				<li data-toggle="tab"><%= link_to "Report: Graphs", root_path  %></li>
+			  <% end %>
+			
+			<%else%>
+          	
           
-            <li data-toggle="tab"><%= link_to "Create A Task", new_task_path  %></li>
-			<li data-toggle="tab"><%= link_to "View Tasks", tasks_path  %></li>
-          
-            <li data-toggle="tab"><%= link_to "Create A Time Entry", new_time_entry_path  %></li>
-			<li data-toggle="tab"><%= link_to "View Time Entries", time_entries_path  %></li>
-			<li data-toggle="tab"><%= link_to "Report: Graphs", root_path  %></li>
+            
+			<% end %>
           </ul>
 
 </div>
