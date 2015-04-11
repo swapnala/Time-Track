@@ -11,6 +11,10 @@
         </div>
     <% end %>
     <div class="field">
+      <%= f.label :project %><br>
+      <%= f.select :project_id, options_from_collection_for_select(Project.all, 'id', 'name') , class: 'form-group'%>
+    </div>
+    <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name %>
     </div>

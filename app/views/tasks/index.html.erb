@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Billable</th>
+      <th>Project</th>
+          <th>Billable</th>
       
     </tr>
   </thead>
@@ -15,6 +16,7 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.name %></td>
+        <td><%= task.project.name %></td>
         <td><%= task.billable %></td>
         
       </tr>
