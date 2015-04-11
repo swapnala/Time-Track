@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.create(email: 'ManagerOfTimeTrack@timetrack.com',password: 'Password@1', password_confirmation: 'Password@1', role: 'manager')
+User.create(email: 'AdminOfTimeTrack@timetrack.com',password: 'Password@1', password_confirmation: 'Password@1', role: 'admin')
